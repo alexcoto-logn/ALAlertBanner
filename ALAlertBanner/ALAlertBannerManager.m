@@ -169,6 +169,11 @@
 
 - (void)alertBannerWillShow:(ALAlertBanner *)alertBanner inView:(UIView *)view {
     //keep track of all views we've added banners to, to deal with rotation events and hideAllAlertBanners
+    
+    if (!view) {
+        return;
+    }
+    
     if (![self.bannerViews containsObject:view]) {
         [self.bannerViews addObject:view];
     }
