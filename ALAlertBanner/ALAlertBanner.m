@@ -217,13 +217,11 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
             
         case ALAlertBannerStyleWarning:
             self.styleImageView.image = [UIImage imageNamed:@"bannerAlert.png"];
-            
-            //tone the shadows down a little for the yellow background
-            self.titleLabel.layer.shadowOpacity = 0.2f;
-            self.subtitleLabel.layer.shadowOpacity = 0.2f;
-            
             break;
     }
+    
+    self.titleLabel.layer.shadowOpacity = 0.0f;
+    self.subtitleLabel.layer.shadowOpacity = 0.0f;
 }
 
 - (void)setShowShadow:(BOOL)showShadow {
@@ -306,6 +304,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
 
 + (ALAlertBanner *)alertBannerForView:(UIView *)view style:(ALAlertBannerStyle)style position:(ALAlertBannerPosition)position title:(NSString *)title subtitle:(NSString *)subtitle tappedBlock:(void (^)(ALAlertBanner *alertBanner))tappedBlock {
     ALAlertBanner *alertBanner = [ALAlertBanner createAlertBannerForView:view style:style position:position title:title subtitle:subtitle];
+    [alertBanner setShowShadow:NO];
     alertBanner.allowTapToDismiss = tappedBlock ? NO : alertBanner.allowTapToDismiss;
     alertBanner.tappedBlock = tappedBlock;
     return alertBanner;

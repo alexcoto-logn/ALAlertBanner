@@ -225,7 +225,7 @@
     else if (index == 0) {
         if (bannersInSamePosition.count > 1) {
             ALAlertBanner *nextAlertBanner = (ALAlertBanner *)[bannersInSamePosition objectAtIndex:1];
-            [nextAlertBanner setShowShadow:YES];
+            //[nextAlertBanner setShowShadow:YES];
         }
         
         [alertBanner setShowShadow:NO];
