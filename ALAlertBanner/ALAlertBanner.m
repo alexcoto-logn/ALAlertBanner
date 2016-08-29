@@ -172,7 +172,14 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.f];
-    _titleLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.9f];
+    
+    if (_style == ALAlertBannerStyleWarning) {
+        _titleLabel.textColor = [UIColor blackColor];
+    } else {
+        _titleLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.9f];
+    }
+    
+    
     _titleLabel.textAlignment = NSTextAlignmentLeft;
     _titleLabel.numberOfLines = 1;
     _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -711,7 +718,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
             break;
     }
     
-    NSArray *colorsArray = [NSArray arrayWithObjects:(id)[fillColor CGColor], (id)[[fillColor darkerColor] CGColor], nil];
+    /*NSArray *colorsArray = [NSArray arrayWithObjects:(id)[fillColor CGColor], (id)[[fillColor darkerColor] CGColor], nil];
     CGColorSpaceRef colorSpace =  CGColorSpaceCreateDeviceRGB();
     const CGFloat locations[2] = {0.f, 1.f};
     CGGradientRef gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colorsArray, locations);
@@ -719,7 +726,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     CGContextDrawLinearGradient(context, gradient, CGPointZero, CGPointMake(0.f, self.bounds.size.height), 0.f);
     
     CGGradientRelease(gradient);
-    CGColorSpaceRelease(colorSpace);
+    CGColorSpaceRelease(colorSpace);*/
     
     CGContextSetFillColorWithColor(context, [UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.6f].CGColor);
     CGContextFillRect(context, CGRectMake(0.f, rect.size.height - 1.f, rect.size.width, 1.f));
