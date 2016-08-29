@@ -172,14 +172,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.backgroundColor = [UIColor clearColor];
     _titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:13.f];
-    
-    if (_style == ALAlertBannerStyleWarning) {
-        _titleLabel.textColor = [UIColor blackColor];
-    } else {
-        _titleLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.9f];
-    }
-    
-    
+    _titleLabel.textColor = [UIColor colorWithWhite:1.f alpha:0.9f];
     _titleLabel.textAlignment = NSTextAlignmentLeft;
     _titleLabel.numberOfLines = 1;
     _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -312,6 +305,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
 + (ALAlertBanner *)alertBannerForView:(UIView *)view style:(ALAlertBannerStyle)style position:(ALAlertBannerPosition)position title:(NSString *)title subtitle:(NSString *)subtitle tappedBlock:(void (^)(ALAlertBanner *alertBanner))tappedBlock {
     ALAlertBanner *alertBanner = [ALAlertBanner createAlertBannerForView:view style:style position:position title:title subtitle:subtitle];
     [alertBanner setShowShadow:NO];
+    alertBanner.titleLabel.textColor = [UIColor blackColor];
     alertBanner.allowTapToDismiss = tappedBlock ? NO : alertBanner.allowTapToDismiss;
     alertBanner.tappedBlock = tappedBlock;
     return alertBanner;
