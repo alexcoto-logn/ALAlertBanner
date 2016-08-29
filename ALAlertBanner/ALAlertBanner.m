@@ -708,7 +708,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
             fillColor = [UIColor colorWithRed:(48/255.0) green:(110/255.0) blue:(173/255.0) alpha:1.f];
             break;
         case ALAlertBannerStyleWarning:
-            fillColor = [UIColor colorWithRed:(211/255.0) green:(209/255.0) blue:(100/255.0) alpha:1.f];
+            fillColor = [UIColor colorWithRed:(255.0/255.0) green:(238.0/255.0) blue:(184.0/255.0) alpha:1.f];
             break;
     }
     
